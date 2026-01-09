@@ -79,19 +79,14 @@ while x > 1:
             # print("input 1 to break the function")
             wd = 1
             while wd < 2:
-                 breaking = int(input("1"))  
-                if breaking == "break":
-                     wd = 3
-                print("if you press 1 robot will stop anything else will continue")
+
                 lspin()
 
         elif which == 2:
             wd = 1
             # print("input 1 to break the function")
             while wd < 2:
-                print("if you press 1 robot will stop anything else will continue")
-                breaking = input("1")
-                if breaking == "break":
+
                     # wd = 3
                 rspin()
         else:
@@ -100,11 +95,13 @@ while x > 1:
         distance = distance // 1
         z = 2
         while z > 1:
-            wall_check()
-            robot.motors(left= FORWARD,right= FORWARD, seconds=0.1)
-            # print(robot.left_sonar())
-            if robot.right_sonar() < 10:
-                robot.motors(left = FORWARD, right = BACKWARD, seconds= 1.525)
+            for loop in range(250):
+                wall_check()
+                robot.motors(left= FORWARD,right= FORWARD, seconds=0.1)
+                # print(robot.left_sonar())
+                if robot.right_sonar() < 10:
+                    robot.motors(left = FORWARD, right = BACKWARD, seconds= 1.525)
+            z = int(input("input 2 to keep going or 1 to stop"))
 
         
 
